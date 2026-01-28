@@ -20,10 +20,6 @@ public class RoulettePocket : ScriptableObject
     [Header("Info")]
     public int number;
     public PocketColor color;
-    public int pocketID;
-
-    [Header("Payout")]
-    public float basePayout;
 
     #endregion
 
