@@ -17,7 +17,7 @@ public class RouletteWheel : MonoBehaviour
     // Events
     #region Events
 
-    public event Action<RoulettePocket> OnSpinCompleted;
+    public event Action<RoulettePocket> OnPocketLanded;
 
     #endregion
 
@@ -26,12 +26,14 @@ public class RouletteWheel : MonoBehaviour
     // Functions
     #region Functions
 
+    // test logic
     public void Spin()
     {
         RoulettePocket result = GetRandomPocket();
         GetResult(result);
     }
 
+    // test function
     private RoulettePocket GetRandomPocket()
     {
         int index = UnityEngine.Random.Range(0, pockets.Count);
@@ -40,7 +42,7 @@ public class RouletteWheel : MonoBehaviour
 
     private void GetResult(RoulettePocket pocket)
     {
-        OnSpinCompleted?.Invoke(pocket);
+        OnPocketLanded?.Invoke(pocket);
     }
 
     #endregion
