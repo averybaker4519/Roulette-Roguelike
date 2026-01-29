@@ -8,6 +8,7 @@ public class Wheel : ScriptableObject
     #region Variables
 
     [Header("Wheel Info")]
+    public int wheelID;
     public List<RoulettePocket> pockets;
 
     #endregion

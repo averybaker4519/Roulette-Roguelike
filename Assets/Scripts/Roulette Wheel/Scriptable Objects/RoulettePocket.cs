@@ -18,13 +18,10 @@ public class RoulettePocket : ScriptableObject
     #region Variables
 
     [Header("Info")]
+    public int pocketID;
     public int number;
     public PocketColor color;
 
     #endregion
 
-
-
-
-    // Functions
 }
