@@ -7,19 +7,19 @@ public class TestSpin : MonoBehaviour
     // #########################################################################################
 
     // Variables
-    [SerializeField] RouletteWheelManager wheel;
+    [SerializeField] RouletteWheel wheel;
 
 
 
     // Functions
     private void OnEnable()
     {
-        wheel.OnPocketLanded += HandlePocketLanded;
+        wheel.OnSpinResolved += HandleSpinResolved;
     }
 
     private void OnDisable()
     {
-        wheel.OnPocketLanded -= HandlePocketLanded;
+        wheel.OnSpinResolved -= HandleSpinResolved;
     }
 
     public void SpinWheel()
@@ -27,7 +27,7 @@ public class TestSpin : MonoBehaviour
         wheel.Spin();
     }
 
-    public void HandlePocketLanded(RoulettePocket pocket)
+    public void HandleSpinResolved(RoulettePocket pocket)
     {
         print(pocket.number + " " + pocket.color);
     }

@@ -1,9 +1,8 @@
-using NUnit.Framework;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class RouletteWheelManager : MonoBehaviour
+public class RouletteWheel : MonoBehaviour
 {
     // Variables
     #region Variables
@@ -18,7 +17,7 @@ public class RouletteWheelManager : MonoBehaviour
     // Events
     #region Events
 
-    public event Action<RoulettePocket> OnPocketLanded;
+    public event Action<RoulettePocket> OnSpinResolved;
 
     #endregion
 
@@ -36,7 +35,7 @@ public class RouletteWheelManager : MonoBehaviour
     public void Spin()
     {
         RoulettePocket result = GetRandomPocket();
-        GetResult(result);
+        ResolveSpin(result);
     }
 
     // test function
@@ -46,9 +45,9 @@ public class RouletteWheelManager : MonoBehaviour
         return pockets[index];
     }
 
-    private void GetResult(RoulettePocket pocket)
+    private void ResolveSpin(RoulettePocket pocket)
     {
-        OnPocketLanded?.Invoke(pocket);
+        OnSpinResolved?.Invoke(pocket);
     }
 
     #endregion
