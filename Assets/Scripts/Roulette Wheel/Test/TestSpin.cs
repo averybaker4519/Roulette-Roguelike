@@ -7,7 +7,7 @@ public class TestSpin : MonoBehaviour
     // #########################################################################################
 
     // Variables
-    [SerializeField] RouletteWheel wheel;
+    [SerializeField] RouletteWheelManager wheel;
 
 
 

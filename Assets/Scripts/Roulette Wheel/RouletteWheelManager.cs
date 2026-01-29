@@ -3,13 +3,14 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-public class RouletteWheel : MonoBehaviour
+public class RouletteWheelManager : MonoBehaviour
 {
     // Variables
     #region Variables
 
     [Header("Wheel Info")]
-    public List<RoulettePocket> pockets;
+    [SerializeField] private Wheel wheelDefinition;
+    private List<RoulettePocket> pockets;
 
     #endregion
 
@@ -25,6 +26,11 @@ public class RouletteWheel : MonoBehaviour
 
     // Functions
     #region Functions
+
+    private void Awake()
+    {
+        pockets = new List<RoulettePocket>(wheelDefinition.pockets);
+    }
 
     // test logic
     public void Spin()
