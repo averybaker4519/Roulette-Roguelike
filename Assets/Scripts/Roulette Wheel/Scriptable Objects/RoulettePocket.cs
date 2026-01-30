@@ -2,25 +2,30 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-
-public enum PocketColor
+[System.Serializable]
+public struct RoulettePocket
 {
-    RED,
-    BLACK,
-    GREEN
-}
+    public enum PocketColor
+    {
+        RED,
+        BLACK,
+        GREEN
+    }
 
-
-[CreateAssetMenu(menuName = "Roulette/Pocket")]
-public class RoulettePocket : ScriptableObject
-{
     // Variables
     #region Variables
 
     [Header("Info")]
-    public int pocketID;
-    public int number;
-    public PocketColor color;
+    public int baseNumber;
+    public PocketColor baseColor;
+    public float basePayout;
+
+    public RoulettePocket(int number, PocketColor color, float payout = 35f)
+    {
+        this.baseNumber = number;
+        this.baseColor = color;
+        this.basePayout = payout;
+    }
 
     #endregion
 
