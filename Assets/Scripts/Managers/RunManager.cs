@@ -10,9 +10,10 @@ public class RunManager : MonoBehaviour
     public static RunManager Instance;
 
     [Header("Run Info")]
+    public RouletteWheel currentWheel;
     public int money;
     public int chips;
-    public List<IGameModifiers> activeModifiers;// = new List<GameModifiers>();
+    public List<IGameModifiers> activeModifiers;
 
     #endregion
 
@@ -38,7 +39,22 @@ public class RunManager : MonoBehaviour
 
     public void AddModifier(IGameModifiers modifier)
     {
+        if (modifier == null) return;
+
+        if (activeModifiers == null)
+        {
+            activeModifiers = new List<IGameModifiers>();
+        }
+
         activeModifiers.Add(modifier);
+        print("Added Modifier: " + modifier.ToString());
+
+    }
+
+    public void RemoveModifier(IGameModifiers modifier)
+    {
+        if (activeModifiers == null || modifier == null) return;
+        activeModifiers.Remove(modifier);
     }
 
     #endregion
@@ -49,6 +65,11 @@ public class RunManager : MonoBehaviour
 
     private void Awake()
     {
+        if (activeModifiers  == null)
+        {
+            activeModifiers = new List<IGameModifiers>();
+        }
+
         HandleGameStateManagerInstance();
     }
 
