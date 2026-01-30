@@ -402,7 +402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Buy upgrade
+  m_text: Buy upgrade that adds a Red 100 pocket every spin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -429,8 +429,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 105.53
-  m_fontSizeBase: 105.53
+  m_fontSize: 60.11
+  m_fontSizeBase: 60.11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RouletteWheel
   wheelDefinition: {fileID: 11400000, guid: 0f86ad8bdbdd5124d80e28905a21970b, type: 2}
+  pockets: []
 --- !u!4 &1569862559
 Transform:
   m_ObjectHideFlags: 0
@@ -1193,7 +1194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0e7a0fb7fd6104288163199c67077d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestBuy
-  addRed100PocketPrefab: {fileID: 0}
+  upgrade: {fileID: 11400000, guid: 1498212db069cb14197e120bbe1ff32a, type: 2}
+  wheelDefinition: {fileID: 11400000, guid: 0f86ad8bdbdd5124d80e28905a21970b, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

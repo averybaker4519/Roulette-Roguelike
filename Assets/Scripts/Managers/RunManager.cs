@@ -45,10 +45,9 @@ public class RunManager : MonoBehaviour
             activeModifiers = new List<IGameModifiers>();
         }
 
-        if (!activeModifiers.Contains(modifier))
-        {
-            activeModifiers.Add(modifier);
-        }
+        activeModifiers.Add(modifier);
+        print("Added Modifier: " + modifier.ToString());
+
     }
 
     public void RemoveModifier(IGameModifiers modifier)

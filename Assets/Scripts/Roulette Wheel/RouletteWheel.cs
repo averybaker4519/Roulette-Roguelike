@@ -8,8 +8,8 @@ public class RouletteWheel : MonoBehaviour
     #region Variables
 
     [Header("Wheel Info")]
-    [SerializeField] private Wheel wheelDefinition;
-    private List<RoulettePocket> pockets;
+    [SerializeField] public Wheel wheelDefinition;
+    public List<RoulettePocket> pockets;
 
     #endregion
 
@@ -31,7 +31,10 @@ public class RouletteWheel : MonoBehaviour
         pockets = new List<RoulettePocket>(wheelDefinition.pockets);
     }
 
-    // test logic
+
+
+    #region Spinning logic
+
     public void Spin()
     {
         SpinContext context = new SpinContext(pockets);
@@ -40,6 +43,7 @@ public class RouletteWheel : MonoBehaviour
 
         RoulettePocket result = GetRandomPocketFromContext(context);
         ResolveSpin(result);
+        print(context.pockets.Count);
     }
 
     // test function
@@ -54,6 +58,11 @@ public class RouletteWheel : MonoBehaviour
         OnSpinResolved?.Invoke(pocket);
     }
 
+    #endregion
+
+
+
+    #region On Spin Modifiers
     private void HandleOnSpinModifiers(SpinContext context)
     {
         // Pull any active spin modifiers from the RunManager into this spin's context
@@ -70,9 +79,12 @@ public class RouletteWheel : MonoBehaviour
 
         foreach (var modifier in context.modifiers)
         {
-            modifier.ApplyModifier(context);
+            print("Applying modifier: " + modifier.GetType().Name);
+            modifier.ApplyModifier(context, this);
         }
     }
+
+    #endregion
 
     #endregion
 }

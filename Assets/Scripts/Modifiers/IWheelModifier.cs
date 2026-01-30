@@ -1,4 +1,4 @@
 public interface IWheelModifier : IGameModifiers
 {
-
+    
 }

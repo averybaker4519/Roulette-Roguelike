@@ -1,14 +1,20 @@
 using UnityEngine;
+using static RoulettePocket;
 
 public class TestBuy : MonoBehaviour
 {
-    public AddRed100Pocket addRed100PocketPrefab;
+    [SerializeField] private AddPocket upgrade;
+    [SerializeField] private Wheel wheelDefinition;
 
     public void AddUpgrade()
     {
-        var go = new GameObject("AddRed100Pocket (runtime)");
-        AddRed100Pocket instance = go.AddComponent<AddRed100Pocket>();
+        if (RunManager.Instance == null) return;
 
-        RunManager.Instance?.AddModifier(instance);
+        RoulettePocket redPocket = new RoulettePocket(100, RoulettePocket.PocketColor.RED);
+
+        if (redPocket == null) return;
+
+        ISpinModifier modifier = upgrade.CreateModifier(redPocket);
+        RunManager.Instance.AddModifier(modifier);
     }
 }
