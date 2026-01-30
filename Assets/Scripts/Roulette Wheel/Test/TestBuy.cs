@@ -6,7 +6,9 @@ public class TestBuy : MonoBehaviour
 
     public void AddUpgrade()
     {
-        addRed100PocketPrefab = new AddRed100Pocket();
-        RunManager.Instance.activeModifiers.Add(addRed100PocketPrefab);
+        var go = new GameObject("AddRed100Pocket (runtime)");
+        AddRed100Pocket instance = go.AddComponent<AddRed100Pocket>();
+
+        RunManager.Instance?.AddModifier(instance);
     }
 }

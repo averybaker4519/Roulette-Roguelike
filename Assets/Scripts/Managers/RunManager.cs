@@ -38,7 +38,23 @@ public class RunManager : MonoBehaviour
 
     public void AddModifier(IGameModifiers modifier)
     {
-        activeModifiers.Add(modifier);
+        if (modifier == null) return;
+
+        if (activeModifiers == null)
+        {
+            activeModifiers = new List<IGameModifiers>();
+        }
+
+        if (!activeModifiers.Contains(modifier))
+        {
+            activeModifiers.Add(modifier);
+        }
+    }
+
+    public void RemoveModifier(IGameModifiers modifier)
+    {
+        if (activeModifiers == null || modifier == null) return;
+        activeModifiers.Remove(modifier);
     }
 
     #endregion
@@ -49,6 +65,11 @@ public class RunManager : MonoBehaviour
 
     private void Awake()
     {
+        if (activeModifiers  == null)
+        {
+            activeModifiers = new List<IGameModifiers>();
+        }
+
         HandleGameStateManagerInstance();
     }
 

@@ -36,10 +36,7 @@ public class RouletteWheel : MonoBehaviour
     {
         SpinContext context = new SpinContext(pockets);
 
-        foreach (var modifier in context.modifiers)
-        {
-            modifier.ApplyModifier(context);
-        }
+        HandleOnSpinModifiers(context);
 
         RoulettePocket result = GetRandomPocketFromContext(context);
         ResolveSpin(result);
@@ -55,6 +52,26 @@ public class RouletteWheel : MonoBehaviour
     private void ResolveSpin(RoulettePocket pocket)
     {
         OnSpinResolved?.Invoke(pocket);
+    }
+
+    private void HandleOnSpinModifiers(SpinContext context)
+    {
+        // Pull any active spin modifiers from the RunManager into this spin's context
+        if (RunManager.Instance != null && RunManager.Instance.activeModifiers != null)
+        {
+            foreach (var gameMod in RunManager.Instance.activeModifiers)
+            {
+                if (gameMod is ISpinModifier spinModifier)
+                {
+                    context.modifiers.Add(spinModifier);
+                }
+            }
+        }
+
+        foreach (var modifier in context.modifiers)
+        {
+            modifier.ApplyModifier(context);
+        }
     }
 
     #endregion

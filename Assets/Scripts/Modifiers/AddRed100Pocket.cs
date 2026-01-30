@@ -4,6 +4,7 @@ public class AddRed100Pocket : MonoBehaviour, ISpinModifier
 {
     public void ApplyModifier(SpinContext context)
     {
-        print("Adding Red 100 Pocket to the Roulette Wheel");
+        var newPocket = new RoulettePocket(100, RoulettePocket.PocketColor.RED, 35f);
+        context.pockets.Add(newPocket);
     }
 }
