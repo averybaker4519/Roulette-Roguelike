@@ -38,7 +38,7 @@ public class RouletteWheel : MonoBehaviour
 
         foreach (var modifier in context.modifiers)
         {
-            modifier.ApplySpinModifier(context);
+            modifier.ApplyModifier(context);
         }
 
         RoulettePocket result = GetRandomPocketFromContext(context);
