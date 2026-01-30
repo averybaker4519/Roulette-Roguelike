@@ -29,6 +29,6 @@ public class TestSpin : MonoBehaviour
 
     public void HandleSpinResolved(RoulettePocket pocket)
     {
-        print(pocket.number + " " + pocket.color);
+        print(pocket.baseNumber + " " + pocket.baseColor);
     }
 }
