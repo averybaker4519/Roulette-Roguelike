@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RunData
 {
-    public Vector4Int[] pockets;
+    public Vector3Int[] pockets;
 
     public int cash;
     public int chips;
