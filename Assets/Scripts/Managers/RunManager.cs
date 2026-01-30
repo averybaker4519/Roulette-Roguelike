@@ -10,9 +10,10 @@ public class RunManager : MonoBehaviour
     public static RunManager Instance;
 
     [Header("Run Info")]
+    public RouletteWheel currentWheel;
     public int money;
     public int chips;
-    public List<IGameModifiers> activeModifiers;// = new List<GameModifiers>();
+    public List<IGameModifiers> activeModifiers;
 
     #endregion
 

@@ -29,6 +29,7 @@ public class RouletteWheel : MonoBehaviour
     private void Awake()
     {
         pockets = new List<RoulettePocket>(wheelDefinition.pockets);
+        RunManager.Instance.currentWheel = this;
     }
 
 
@@ -79,12 +80,15 @@ public class RouletteWheel : MonoBehaviour
 
         foreach (var modifier in context.modifiers)
         {
-            print("Applying modifier: " + modifier.GetType().Name);
             modifier.ApplyModifier(context, this);
         }
     }
 
+
+
     #endregion
+
+
 
     #endregion
 }

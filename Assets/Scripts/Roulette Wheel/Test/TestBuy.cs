@@ -3,10 +3,11 @@ using static RoulettePocket;
 
 public class TestBuy : MonoBehaviour
 {
-    [SerializeField] private AddPocket upgrade;
+    [SerializeField] private AddPocketOnSpin spinModifierUpgrade;
+    [SerializeField] private AddPocket wheelModifierUpgrade;
     [SerializeField] private Wheel wheelDefinition;
 
-    public void AddUpgrade()
+    public void AddPocketOnSpinUpgrade()
     {
         if (RunManager.Instance == null) return;
 
@@ -14,7 +15,13 @@ public class TestBuy : MonoBehaviour
 
         if (redPocket == null) return;
 
-        ISpinModifier modifier = upgrade.CreateModifier(redPocket);
+        ISpinModifier modifier = spinModifierUpgrade.CreateModifier(redPocket);
         RunManager.Instance.AddModifier(modifier);
+    }
+
+    public void AddPocketOnPurchaseUpgrade()
+    {
+        IWheelModifier modifier = wheelModifierUpgrade.CreateModifier();
+        modifier.ApplyModifier(RunManager.Instance.currentWheel);
     }
 }
