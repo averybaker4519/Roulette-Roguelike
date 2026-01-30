@@ -34,15 +34,22 @@ public class RouletteWheel : MonoBehaviour
     // test logic
     public void Spin()
     {
-        RoulettePocket result = GetRandomPocket();
+        SpinContext context = new SpinContext(pockets);
+
+        foreach (var modifier in context.modifiers)
+        {
+            modifier.ApplySpinModifier(context);
+        }
+
+        RoulettePocket result = GetRandomPocketFromContext(context);
         ResolveSpin(result);
     }
 
     // test function
-    private RoulettePocket GetRandomPocket()
+    private RoulettePocket GetRandomPocketFromContext(SpinContext context)
     {
-        int index = UnityEngine.Random.Range(0, pockets.Count);
-        return pockets[index];
+        int index = UnityEngine.Random.Range(0, context.pockets.Count);
+        return context.pockets[index];
     }
 
     private void ResolveSpin(RoulettePocket pocket)
