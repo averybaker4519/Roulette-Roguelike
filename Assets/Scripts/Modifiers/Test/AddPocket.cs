@@ -28,6 +28,8 @@ public class AddPocket : ScriptableObject
         {
             for (int i = 0; i < amount; i++)
             {
+                Debug.Log(wheel);
+                
                 wheel.AddNewPocket(redPocket);
             }
         }

@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a063c27a40eb97c49bb32a0965936031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunManager
-  currentWheel: {fileID: 0}
+  currentWheel: {fileID: 1548012461}
   money: 0
   chips: 0
 --- !u!114 &696176958
