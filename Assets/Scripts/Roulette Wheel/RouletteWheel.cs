@@ -33,14 +33,21 @@ public class RouletteWheel : MonoBehaviour
     private void Awake()
     {
         pockets = new List<RoulettePocket>(wheelDefinition.pockets);
-        RunManager.Instance.currentWheel = this;
         GenerateWheel();
+        RunManager.Instance.currentWheel = this;
     }
 
     #region Generation
 
     public void GenerateWheel()
     {
+        PocketObject[] objects = FindObjectsByType<PocketObject>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < objects.Length; i++)
+        {
+            Destroy(objects[i].gameObject);
+        }
+        
         float offset = 360f / pockets.Count;
         
         for (int i = 0; i < pockets.Count; i++)
