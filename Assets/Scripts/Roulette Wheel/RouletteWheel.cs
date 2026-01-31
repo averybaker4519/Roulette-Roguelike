@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class RouletteWheel : MonoBehaviour
 {
@@ -30,7 +31,20 @@ public class RouletteWheel : MonoBehaviour
     {
         pockets = new List<RoulettePocket>(wheelDefinition.pockets);
         RunManager.Instance.currentWheel = this;
+        GenerateWheel();
     }
+
+    #region Generation
+
+    public void GenerateWheel()
+    {
+        for (int i = 0; i < pockets.Count; i++)
+        {
+
+        }
+    }
+
+    #endregion
 
 
 
