@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class RouletteWheel : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class RouletteWheel : MonoBehaviour
     [Header("Wheel Info")]
     [SerializeField] public Wheel wheelDefinition;
     public List<RoulettePocket> pockets;
+
+    [Header("Prefabs")]
+    [SerializeField] private PocketObject pocketObject;
 
     #endregion
 
@@ -30,7 +34,26 @@ public class RouletteWheel : MonoBehaviour
     {
         pockets = new List<RoulettePocket>(wheelDefinition.pockets);
         RunManager.Instance.currentWheel = this;
+        GenerateWheel();
     }
+
+    #region Generation
+
+    public void GenerateWheel()
+    {
+        float offset = 360f / pockets.Count;
+        
+        for (int i = 0; i < pockets.Count; i++)
+        {
+            PocketObject o = Instantiate(pocketObject, transform);
+
+            o.SetPocket(pockets[i]);
+
+            o.SetPosition(i, offset);
+        }
+    }
+
+    #endregion
 
 
 
