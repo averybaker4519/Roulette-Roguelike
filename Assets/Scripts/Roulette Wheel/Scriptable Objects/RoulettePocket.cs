@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 [System.Serializable]
-public struct RoulettePocket
+public class RoulettePocket
 {
     public enum PocketColor
     {
