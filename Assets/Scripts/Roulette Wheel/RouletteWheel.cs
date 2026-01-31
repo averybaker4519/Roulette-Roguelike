@@ -60,6 +60,13 @@ public class RouletteWheel : MonoBehaviour
         }
     }
 
+    public void AddNewPocket(RoulettePocket pocket)
+    {
+        pockets.Add(pocket);
+
+        GenerateWheel();
+    }
+
     #endregion
 
 
