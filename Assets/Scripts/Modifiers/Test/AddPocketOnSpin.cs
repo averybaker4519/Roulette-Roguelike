@@ -28,7 +28,7 @@ public class AddPocketOnSpin : ScriptableObject
             for (int i = 0; i < amount; i++)
             {
                 context.pockets.Add(redPocket);
-                wheel.pockets.Add(redPocket);
+                wheel.AddNewPocket(redPocket);
             }
         }
     }
