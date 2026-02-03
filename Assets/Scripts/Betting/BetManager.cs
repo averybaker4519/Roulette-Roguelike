@@ -86,7 +86,7 @@ public class BetManager : MonoBehaviour
              RunManager.Instance.AddChips(bet.betAmount);
         }
     }
-
+     
     #endregion
 
 
