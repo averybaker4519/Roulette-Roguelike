@@ -11,7 +11,7 @@ public class RunManager : MonoBehaviour
 
     [Header("Run Info")]
     public RouletteWheel currentWheel;
-    public int money;
+    //public int money;
     public int chips;
     public List<IGameModifiers> activeModifiers;
 
@@ -21,7 +21,7 @@ public class RunManager : MonoBehaviour
 
 
     // Functions
-    #region RunManager
+    #region RunManager Instance
 
     // makes script into singleton, called in Awake()
     public void HandleGameStateManagerInstance()
@@ -36,6 +36,11 @@ public class RunManager : MonoBehaviour
             Destroy(this);
         }
     }
+
+    #endregion
+
+
+    #region Modifiers Management
 
     public void AddModifier(IGameModifiers modifier)
     {
@@ -59,6 +64,27 @@ public class RunManager : MonoBehaviour
 
     #endregion
 
+
+    #region Money Management
+
+    public void AddChips(int amount)
+    {
+        chips += amount;
+    }
+
+    public void RemoveChips(int amount)
+    {
+        if (HasEnoughChips(amount))
+        {
+            chips -= amount;
+        }
+    }
+    public bool HasEnoughChips(int amount)
+    {
+        return chips >= amount;
+    }
+
+    #endregion
 
 
     #region Built-in functions

@@ -1,5 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
-using static GameStateManager;
 
 public class BetManager : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class BetManager : MonoBehaviour
     public float columnPayout = 2f;
     public float lowHighPayout = 1f;
     public float evenOddPayout = 1f;
+
+    #endregion
+
+    #region Betting
+
+    private readonly List<Bet> activeBets = new List<Bet>();
+    private RouletteWheel wheel;
 
     #endregion
 
@@ -43,6 +51,44 @@ public class BetManager : MonoBehaviour
     #endregion
 
 
+    #region Betting Functions
+    
+    public void PlaceBet(Bet bet)
+    {
+        if (RunManager.Instance.HasEnoughChips(bet.betAmount))
+        {
+            RunManager.Instance.RemoveChips(bet.betAmount);
+            activeBets.Add(bet);
+        }
+        else
+        {
+            Debug.LogWarning("BetManager: Not enough chips to place bet.");
+            return;
+        }
+    }
+
+    public void RemoveBet(Bet bet)
+    {
+        if (bet == null)
+        {
+            Debug.LogWarning("BetManager: RemoveBet called with null bet.");
+            return;
+        }
+
+        if (!activeBets.Contains(bet))
+        {
+            Debug.LogWarning("BetManager: Attempted to remove a bet that is not active.");
+            return;
+        }
+
+        if (activeBets.Remove(bet))
+        {
+             RunManager.Instance.AddChips(bet.betAmount);
+        }
+    }
+
+    #endregion
+
 
     #region Built-in functions
 
@@ -50,6 +96,13 @@ public class BetManager : MonoBehaviour
     {
         HandleBetManagerInstance();
     }
+
+    #endregion
+
+
+    #region Helpers
+
+
 
     #endregion
 }
