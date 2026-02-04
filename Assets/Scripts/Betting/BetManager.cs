@@ -129,7 +129,14 @@ public class BetManager : MonoBehaviour
 
     private void ResolveAllBets(RoulettePocket pocket)
     {
-        print("Resolving Bets for pocket: " + pocket.baseNumber + " " + pocket.baseColor);
+        if (activeBets.Count == 0) return;
+
+        foreach (Bet bet in activeBets)
+        {
+            bet.ResolveBet(pocket);
+        }
+
+        activeBets.Clear();
     }
 
     #endregion
