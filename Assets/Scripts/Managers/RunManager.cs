@@ -70,6 +70,7 @@ public class RunManager : MonoBehaviour
     public void AddChips(int amount)
     {
         chips += amount;
+        Debug.Log("Added " + amount + " chips. Total chips: " + chips);
     }
 
     public void RemoveChips(int amount)
@@ -77,6 +78,7 @@ public class RunManager : MonoBehaviour
         if (HasEnoughChips(amount))
         {
             chips -= amount;
+            Debug.Log("Removed " + amount + " chips. Total chips: " + chips);
         }
     }
     public bool HasEnoughChips(int amount)
@@ -91,12 +93,12 @@ public class RunManager : MonoBehaviour
 
     private void Awake()
     {
+        HandleGameStateManagerInstance();
+
         if (activeModifiers  == null)
         {
             activeModifiers = new List<IGameModifiers>();
         }
-
-        HandleGameStateManagerInstance();
     }
 
     #endregion

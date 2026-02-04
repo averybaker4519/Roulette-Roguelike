@@ -29,7 +29,7 @@ public class Bet
 
     #endregion
 
-    #region Win Check
+    #region Betting Functions
 
     public bool IsWin(RoulettePocket pocket)
     {
@@ -79,18 +79,33 @@ public class Bet
 
     #endregion
 
-    #region Base Payout Info
 
-    public int GetBasePayout()
+    #region Payout Info
+
+    public float GetBasePayout()
     {
         switch (betType)
         {
-            case BetType.Straight: return 35;
-            case BetType.RedBlack: return 1;
-            case BetType.EvenOdd: return 1;
-            case BetType.LowHigh: return 1;
-            case BetType.Dozen: return 2;
-            case BetType.Column: return 2;
+            case BetType.Straight: return 35f;
+            case BetType.RedBlack: return 1f;
+            case BetType.EvenOdd: return 1f;
+            case BetType.LowHigh: return 1f;
+            case BetType.Dozen: return 2f;
+            case BetType.Column: return 2f;
+            default: return 0f;
+        }
+    }
+
+    public float GetCurrentPayout()
+    {
+        switch (betType)
+        {
+            case BetType.Straight: return BetManager.Instance.straightPayout;
+            case BetType.RedBlack: return BetManager.Instance.redBlackPayout;
+            case BetType.EvenOdd: return BetManager.Instance.evenOddPayout;
+            case BetType.LowHigh: return BetManager.Instance.lowHighPayout;
+            case BetType.Dozen: return BetManager.Instance.dozenPayout;
+            case BetType.Column: return BetManager.Instance.columnPayout;
             default: return 0;
         }
     }

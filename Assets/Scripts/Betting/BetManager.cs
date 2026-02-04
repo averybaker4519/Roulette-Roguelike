@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,7 +43,7 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
 
@@ -55,8 +54,15 @@ public class BetManager : MonoBehaviour
     
     public void PlaceBet(Bet bet)
     {
+        if (bet == null)
+        {
+            Debug.LogWarning("BetManager: PlaceBet called with null bet.");
+            return;
+        }
+
         if (RunManager.Instance.HasEnoughChips(bet.betAmount))
         {
+            Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
             RunManager.Instance.RemoveChips(bet.betAmount);
             activeBets.Add(bet);
         }
@@ -86,7 +92,84 @@ public class BetManager : MonoBehaviour
              RunManager.Instance.AddChips(bet.betAmount);
         }
     }
-     
+
+    public void ClearAllBets(bool refundBets = false)
+    {
+        if (refundBets)
+        {
+            foreach (Bet bet in activeBets)
+            {
+                RunManager.Instance.AddChips(bet.betAmount);
+            }
+        }
+        activeBets.Clear();
+    }
+
+    #endregion
+
+
+    #region Wheel Hookup & Resolution
+
+    private void HookToCurrentWheel()
+    {
+        if (RunManager.Instance == null) return;
+
+        var wheel = RunManager.Instance.currentWheel;
+        if (wheel != null)
+        {
+            // ensures no duplicate subscription
+            wheel.OnSpinResolved -= HandleSpinResolved;
+            wheel.OnSpinResolved += HandleSpinResolved;
+        }
+    }
+
+    private void HandleSpinResolved(RoulettePocket pocket)
+    {
+        ResolveAllBets(pocket);
+    }
+
+    private void ResolveAllBets(RoulettePocket pocket)
+    {
+        if (activeBets == null || activeBets.Count == 0) return;
+        List<Bet> betsToResolve = new List<Bet>(activeBets);
+        activeBets.Clear();
+
+        foreach (Bet bet in betsToResolve)
+        {
+            ResolveBet(pocket, bet);
+        }
+    }
+
+    public void ResolveBet(RoulettePocket pocket, Bet bet)
+    {
+        bool isWin = bet.IsWin(pocket);
+        float payout = bet.GetCurrentPayout();
+        float payoutMultiplier = 1f;
+
+        // apply modifiers
+        foreach (var mod in RunManager.Instance.activeModifiers)
+        {
+            if (mod is IBetModifier betMod)
+            {
+                betMod.ApplyModifier(bet, wheel, pocket, ref isWin, ref payoutMultiplier);
+            }
+        }
+
+        // payout
+        if (bet.IsWin(pocket))
+        {
+            float totalReturn = bet.betAmount * (payout + 1) * payoutMultiplier;
+            int winnings = Mathf.RoundToInt(totalReturn);
+            RunManager.Instance.AddChips(winnings);
+            Debug.Log($"Bet won! Payout: {winnings} chips.");
+            Debug.Log($"Payout details - Base Payout: {payout}, Multiplier: {payoutMultiplier}, Bet Amount: {bet.betAmount}");
+        }
+        else
+        {
+            Debug.Log("Bet lost");
+        }
+    }
+
     #endregion
 
 
@@ -97,12 +180,18 @@ public class BetManager : MonoBehaviour
         HandleBetManagerInstance();
     }
 
-    #endregion
+    private void Start()
+    {
+        HookToCurrentWheel();
+    }
 
-
-    #region Helpers
-
-
+    private void OnDestroy()
+    {
+        if (wheel != null)
+        {
+            wheel.OnSpinResolved -= HandleSpinResolved;
+        }
+    }
 
     #endregion
 }
