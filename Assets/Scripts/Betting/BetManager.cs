@@ -62,6 +62,7 @@ public class BetManager : MonoBehaviour
 
         if (RunManager.Instance.HasEnoughChips(bet.betAmount))
         {
+            Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
             RunManager.Instance.RemoveChips(bet.betAmount);
             activeBets.Add(bet);
         }
@@ -157,10 +158,11 @@ public class BetManager : MonoBehaviour
         // payout
         if (bet.IsWin(pocket))
         {
-            float totalReturn = bet.betAmount * (payout + 1f) * payoutMultiplier;
+            float totalReturn = bet.betAmount * (payout + 1) * payoutMultiplier;
             int winnings = Mathf.RoundToInt(totalReturn);
             RunManager.Instance.AddChips(winnings);
             Debug.Log($"Bet won! Payout: {winnings} chips.");
+            Debug.Log($"Payout details - Base Payout: {payout}, Multiplier: {payoutMultiplier}, Bet Amount: {bet.betAmount}");
         }
         else
         {
