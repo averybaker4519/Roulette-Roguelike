@@ -91,12 +91,12 @@ public class RunManager : MonoBehaviour
 
     private void Awake()
     {
+        HandleGameStateManagerInstance();
+
         if (activeModifiers  == null)
         {
             activeModifiers = new List<IGameModifiers>();
         }
-
-        HandleGameStateManagerInstance();
     }
 
     #endregion

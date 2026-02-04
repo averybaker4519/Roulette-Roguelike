@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,7 +43,7 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this);
         }
     }
 
@@ -55,6 +54,12 @@ public class BetManager : MonoBehaviour
     
     public void PlaceBet(Bet bet)
     {
+        if (bet == null)
+        {
+            Debug.LogWarning("BetManager: PlaceBet called with null bet.");
+            return;
+        }
+
         if (RunManager.Instance.HasEnoughChips(bet.betAmount))
         {
             RunManager.Instance.RemoveChips(bet.betAmount);
@@ -86,7 +91,47 @@ public class BetManager : MonoBehaviour
              RunManager.Instance.AddChips(bet.betAmount);
         }
     }
-     
+
+    public void ClearAllBets(bool refundBets = false)
+    {
+        if (refundBets)
+        {
+            foreach (Bet bet in activeBets)
+            {
+                RunManager.Instance.AddChips(bet.betAmount);
+            }
+        }
+        activeBets.Clear();
+    }
+
+    #endregion
+
+
+    #region Wheel Hookup & Resolution
+
+    private void HookToCurrentWheel()
+    {
+        if (RunManager.Instance == null) return;
+
+        var wheel = RunManager.Instance.currentWheel;
+        if (wheel != null)
+        {
+            // ensures no duplicate subscription
+            wheel.OnSpinResolved -= HandleSpinResolved;
+            wheel.OnSpinResolved += HandleSpinResolved;
+        }
+    }
+
+    private void HandleSpinResolved(RoulettePocket pocket)
+    {
+        ResolveAllBets(pocket);
+    }
+
+    private void ResolveAllBets(RoulettePocket pocket)
+    {
+        print("Resolving Bets for pocket: " + pocket.baseNumber + " " + pocket.baseColor);
+    }
+
     #endregion
 
 
@@ -97,12 +142,10 @@ public class BetManager : MonoBehaviour
         HandleBetManagerInstance();
     }
 
-    #endregion
-
-
-    #region Helpers
-
-
+    private void Start()
+    {
+        HookToCurrentWheel();
+    }
 
     #endregion
 }
