@@ -31,21 +31,6 @@ public class Bet
 
     #region Betting Functions
 
-    public void ResolveBet(RoulettePocket pocket)
-    {
-        if (IsWin(pocket))
-        {
-            float payoutMultiplier = GetCurrentPayout();
-            int winnings = (int)(betAmount * payoutMultiplier);
-            RunManager.Instance.AddChips(winnings);
-            Debug.Log($"Bet won! Payout: {winnings} chips.");
-        }
-        else
-        {
-            Debug.Log("Bet lost");
-        }
-    }
-
     public bool IsWin(RoulettePocket pocket)
     {
         switch(betType)

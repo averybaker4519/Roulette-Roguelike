@@ -129,14 +129,43 @@ public class BetManager : MonoBehaviour
 
     private void ResolveAllBets(RoulettePocket pocket)
     {
-        if (activeBets.Count == 0) return;
+        if (activeBets == null || activeBets.Count == 0) return;
+        List<Bet> betsToResolve = new List<Bet>(activeBets);
+        activeBets.Clear();
 
-        foreach (Bet bet in activeBets)
+        foreach (Bet bet in betsToResolve)
         {
-            bet.ResolveBet(pocket);
+            ResolveBet(pocket, bet);
+        }
+    }
+
+    public void ResolveBet(RoulettePocket pocket, Bet bet)
+    {
+        bool isWin = bet.IsWin(pocket);
+        float payout = bet.GetCurrentPayout();
+        float payoutMultiplier = 1f;
+
+        // apply modifiers
+        foreach (var mod in RunManager.Instance.activeModifiers)
+        {
+            if (mod is IBetModifier betMod)
+            {
+                betMod.ApplyModifier(bet, wheel, pocket, ref isWin, ref payoutMultiplier);
+            }
         }
 
-        activeBets.Clear();
+        // payout
+        if (bet.IsWin(pocket))
+        {
+            float totalReturn = bet.betAmount * (payout + 1f) * payoutMultiplier;
+            int winnings = Mathf.RoundToInt(totalReturn);
+            RunManager.Instance.AddChips(winnings);
+            Debug.Log($"Bet won! Payout: {winnings} chips.");
+        }
+        else
+        {
+            Debug.Log("Bet lost");
+        }
     }
 
     #endregion
@@ -152,6 +181,14 @@ public class BetManager : MonoBehaviour
     private void Start()
     {
         HookToCurrentWheel();
+    }
+
+    private void OnDestroy()
+    {
+        if (wheel != null)
+        {
+            wheel.OnSpinResolved -= HandleSpinResolved;
+        }
     }
 
     #endregion
