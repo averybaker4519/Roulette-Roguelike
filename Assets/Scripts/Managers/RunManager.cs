@@ -11,7 +11,6 @@ public class RunManager : MonoBehaviour
 
     [Header("Run Info")]
     public RouletteWheel currentWheel;
-    //public int money;
     public int chips;
     public List<IGameModifiers> activeModifiers;
 
@@ -62,6 +61,31 @@ public class RunManager : MonoBehaviour
         activeModifiers.Remove(modifier);
     }
 
+
+    #region On Spin Modifiers
+    public void HandleOnSpinModifiers()
+    {
+        // Pull any active spin modifiers from the RunManager into this spin's context
+        if (Instance != null && Instance.activeModifiers != null)
+        {
+            foreach (var gameMod in RunManager.Instance.activeModifiers)
+            {
+                if (gameMod is ISpinModifier spinModifier)
+                {
+                    currentWheel.context.modifiers.Add(spinModifier);
+                }
+            }
+        }
+
+        foreach (var modifier in currentWheel.context.modifiers)
+        {
+            modifier.ApplyModifier(currentWheel.context, currentWheel);
+        }
+    }
+
+    #endregion
+
+
     #endregion
 
 
@@ -89,6 +113,7 @@ public class RunManager : MonoBehaviour
     #endregion
 
 
+
     #region Built-in functions
 
     private void Awake()
@@ -99,6 +124,11 @@ public class RunManager : MonoBehaviour
         {
             activeModifiers = new List<IGameModifiers>();
         }
+    }
+
+    private void OnEnable()
+    {
+        currentWheel.OnSpinStart += HandleOnSpinModifiers;
     }
 
     #endregion
