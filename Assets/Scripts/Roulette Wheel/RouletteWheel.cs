@@ -15,12 +15,16 @@ public class RouletteWheel : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] private PocketObject pocketObject;
 
+    [DoNotSerialize] public SpinContext context;
+
     #endregion
 
 
     // Events
     #region Events
 
+    public event Action OnSpinStart;
+    public event Action OnSpinning;
     public event Action<RoulettePocket> OnSpinResolved;
 
     #endregion
@@ -71,17 +75,22 @@ public class RouletteWheel : MonoBehaviour
 
 
 
-    #region Spinning logic
+    #region Spinning logic and events
 
     public void Spin()
     {
-        SpinContext context = new SpinContext(pockets);
+        context = new SpinContext(pockets);
 
-        HandleOnSpinModifiers(context);
+        // spin start event
+        SpinStart();
 
+        // during spin if needed
+        DuringSpin();
+
+        //spin end event
         RoulettePocket result = GetRandomPocketFromContext(context);
         ResolveSpin(result);
-        print(context.pockets.Count);
+        print("Number of pockets: " + context.pockets.Count);
     }
 
     // test function
@@ -91,37 +100,20 @@ public class RouletteWheel : MonoBehaviour
         return context.pockets[index];
     }
 
+    private void SpinStart()
+    {
+        OnSpinStart?.Invoke();
+    }
+
+    private void DuringSpin()
+    {
+        OnSpinning?.Invoke();
+    }
+
     private void ResolveSpin(RoulettePocket pocket)
     {
         OnSpinResolved?.Invoke(pocket);
     }
-
-    #endregion
-
-
-
-    #region On Spin Modifiers
-    private void HandleOnSpinModifiers(SpinContext context)
-    {
-        // Pull any active spin modifiers from the RunManager into this spin's context
-        if (RunManager.Instance != null && RunManager.Instance.activeModifiers != null)
-        {
-            foreach (var gameMod in RunManager.Instance.activeModifiers)
-            {
-                if (gameMod is ISpinModifier spinModifier)
-                {
-                    context.modifiers.Add(spinModifier);
-                }
-            }
-        }
-
-        foreach (var modifier in context.modifiers)
-        {
-            modifier.ApplyModifier(context, this);
-        }
-    }
-
-
 
     #endregion
 

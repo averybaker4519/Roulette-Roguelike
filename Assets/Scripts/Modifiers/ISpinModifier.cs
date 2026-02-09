@@ -1,4 +1,4 @@
 ﻿public interface ISpinModifier : IGameModifiers
 {
-    public void ApplyModifier(SpinContext context, RouletteWheel wheel);
+    public void ApplyModifier(SpinContext context, RouletteWheel wheel = null);
 }
