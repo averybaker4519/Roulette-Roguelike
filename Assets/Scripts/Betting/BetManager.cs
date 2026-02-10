@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +29,12 @@ public class BetManager : MonoBehaviour
 
     #endregion
 
+    #region Events
+
+    public event Action OnPayoutChanged;
+
+    #endregion
+
 
 
     // Functions
@@ -50,8 +57,48 @@ public class BetManager : MonoBehaviour
     #endregion
 
 
+    #region Payout Management
+
+    public void SetPayout(BetType betType, float value)
+    {
+        switch (betType)
+        {
+            case BetType.Straight:
+                straightPayout = value;
+                break;
+            case BetType.RedBlack:
+                redBlackPayout = value;
+                break;
+            case BetType.Dozen:
+                dozenPayout = value;
+                break;
+            case BetType.Column:
+                columnPayout = value;
+                break;
+            case BetType.LowHigh:
+                lowHighPayout = value;
+                break;
+            case BetType.EvenOdd:
+                evenOddPayout = value;
+                break;
+            default:
+                Debug.LogWarning("SetPayout: Unknown BetType");
+                return;
+        }
+
+        NotifyPayoutsChanged();
+    }
+
+    private void NotifyPayoutsChanged()
+    {
+        OnPayoutChanged?.Invoke();
+    }
+
+    #endregion
+
+
     #region Betting Functions
-    
+
     public void PlaceBet(Bet bet)
     {
         if (bet == null)
