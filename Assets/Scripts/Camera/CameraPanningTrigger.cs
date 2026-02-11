@@ -15,19 +15,50 @@ public class CameraPanningTrigger : MonoBehaviour
     private float initialZPosition;
     private float distanceThreshold = .01f;
 
+    private static CameraPanningTrigger activePanner;
+    private Coroutine panCoroutine;
+
 
     #endregion
 
 
     public void BeginPan()
     {
-        StartCoroutine(Pan());
+        // if another pan is already happenning, stop it before starting a new one
+        if (activePanner != null && activePanner != this)
+        {
+            activePanner.StopCurrentPan();
+        }
+
+        // if this pan is already happenning, stop it before starting a new one
+        if (panCoroutine != null)
+        {
+            StopCoroutine(panCoroutine);
+            panCoroutine = null;
+        }
+
+        activePanner = this;
+        panCoroutine = StartCoroutine(Pan());
     }
 
 
     // Functions
 
     #region Functions
+
+    private void StopCurrentPan()
+    {
+        if (panCoroutine != null)
+        {
+            StopCoroutine(panCoroutine);
+            panCoroutine = null;
+        }
+
+        if (activePanner == this)
+        {
+            activePanner = null;
+        }
+    }
 
     public IEnumerator Pan()
     {
@@ -39,7 +70,7 @@ public class CameraPanningTrigger : MonoBehaviour
             mainCamera.transform.position = newPosition;
             yield return null;
         }
-        print("Camera has reached the target position.");
+
         StopCoroutine(Pan());
     }
 
