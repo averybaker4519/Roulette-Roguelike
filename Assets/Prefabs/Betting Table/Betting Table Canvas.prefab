@@ -6951,6 +6951,67 @@ MonoBehaviour:
   betSlider: {fileID: 6051408765309010110}
   bettingButtonObject: {fileID: 1917584045188990893, guid: 7e6a7ccee6695f94dabfcc45afdd89a0, type: 3}
   straightButtonContainer: {fileID: 4391958261622376295}
+  zeroButtonContainer: {fileID: 6947023179872108890}
+--- !u!1 &3956759714834517661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6947023179872108890}
+  - component: {fileID: 5514794713977120994}
+  m_Layer: 5
+  m_Name: 0 and 00 (GENERATED IN SCRIPT)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6947023179872108890
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956759714834517661}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556461637279386165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1092.69, y: 193.10083}
+  m_SizeDelta: {x: 751.2783, y: 174.8791}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5514794713977120994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956759714834517661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 224, y: 158}
+  m_Spacing: {x: 100, y: 0}
+  m_Constraint: 1
+  m_ConstraintCount: 2
 --- !u!1 &4053192494024502845
 GameObject:
   m_ObjectHideFlags: 0
@@ -8491,6 +8552,7 @@ RectTransform:
   - {fileID: 850948582187215329}
   - {fileID: 5950977549489830371}
   - {fileID: 4391958261622376295}
+  - {fileID: 6947023179872108890}
   m_Father: {fileID: 3050255302194167389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9221,7 +9283,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 224, y: 158}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 35, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 3
 --- !u!1 &5681188127019417666
@@ -11257,7 +11319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5079229853170165974
 RectTransform:
   m_ObjectHideFlags: 0

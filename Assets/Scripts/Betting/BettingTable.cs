@@ -13,9 +13,14 @@ public class BettingTable : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bettingAmountText;
     [SerializeField] private Slider betSlider;
 
-    [Header("Pocket Button Object for Generation")]
+    [Header("Button Prefab")]
     [SerializeField] private GameObject bettingButtonObject;
+
+    [Header("Straight Pocket Button Generation")]
     [SerializeField] private RectTransform straightButtonContainer;
+
+    [Header("Zero Pocket Button Generation")]
+    [SerializeField] private RectTransform zeroButtonContainer;
 
     #endregion
 
@@ -39,6 +44,17 @@ public class BettingTable : MonoBehaviour
         bettingAmountText.text = $"Bet Amount: {x}";
     }
 
+    private Color GetPocketColor(RoulettePocket pocket)
+    {
+        return pocket.baseColor switch
+        {
+            RoulettePocket.PocketColor.RED => Color.red,
+            RoulettePocket.PocketColor.BLACK => Color.black,
+            RoulettePocket.PocketColor.GREEN => Color.green,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
+
     #endregion
 
 
@@ -48,6 +64,7 @@ public class BettingTable : MonoBehaviour
     public void GenerateBettingButtons()
     {
         PopulateStraightPockets();
+        PopulateZeroPockets();
     }
 
     public void PopulateStraightPockets()
@@ -69,6 +86,30 @@ public class BettingTable : MonoBehaviour
             bettingScript.parentBettingTable = this;
             bettingScript.betType = BetType.Straight;
             bettingScript.number = pocket.baseNumber;
+            button.GetComponent<Image>().color = GetPocketColor(pocket);
+        }
+    }
+
+    public void PopulateZeroPockets()
+    {
+        foreach (var pocket in RunManager.Instance.currentWheel.pockets)
+        {
+            if (pocket.baseNumber != 0) continue;
+
+            var button = Instantiate(bettingButtonObject, zeroButtonContainer);
+            button.transform.localScale = Vector3.one;
+
+            // setting text
+            TextMeshProUGUI buttonTextObject = button.GetComponentInChildren<TextMeshProUGUI>();
+            buttonTextObject.text = pocket.baseNumber.ToString();
+            buttonTextObject.enableAutoSizing = true;
+
+            // setting bet info
+            BettingButton bettingScript = button.GetComponent<BettingButton>();
+            bettingScript.parentBettingTable = this;
+            bettingScript.betType = BetType.Straight;
+            bettingScript.number = pocket.baseNumber;
+            button.GetComponent<Image>().color = GetPocketColor(pocket);
         }
     }
 
