@@ -213,7 +213,7 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Bet lost");
+            Debug.Log("Bet lost. Chips left: " + RunManager.Instance.chips);
         }
     }
 

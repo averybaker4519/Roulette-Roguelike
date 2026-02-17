@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb373648311a79408d9175601f37d61, type: 3}
+  m_Name: Classic Roulette Wheel
+  m_EditorClassIdentifier: Assembly-CSharp::Wheel
+  wheelID: 0
+  pockets:
+  - baseNumber: 0
+    baseColor: 2
+    basePayout: 17
+  - baseNumber: 0
+    baseColor: 2
+    basePayout: 17
+  - baseNumber: 1
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 2
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 3
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 4
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 5
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 6
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 7
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 8
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 9
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 10
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 11
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 12
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 13
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 14
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 15
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 16
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 17
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 18
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 19
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 20
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 21
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 22
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 23
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 24
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 25
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 26
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 27
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 28
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 29
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 30
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 31
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 32
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 33
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 34
+    baseColor: 0
+    basePayout: 35
+  - baseNumber: 35
+    baseColor: 1
+    basePayout: 35
+  - baseNumber: 36
+    baseColor: 0
+    basePayout: 35

@@ -83,7 +83,16 @@ public class BettingTable : MonoBehaviour
         betSlider.maxValue = RunManager.Instance.chips;
         betSlider.onValueChanged.AddListener(OnBetAmountChanged);
 
+        var wheel = RunManager.Instance.currentWheel;
+        wheel.AfterSpinResolved += AfterSpinResolved;
+
         GenerateBettingButtons();
+    }
+
+
+    private void AfterSpinResolved()
+    {
+        UpdateUI();
     }
 
     #endregion
