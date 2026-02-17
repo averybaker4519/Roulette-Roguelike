@@ -1,11 +1,17 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static RoulettePocket;
 
 public class BettingButton : MonoBehaviour
 {
+    // Variables
+
+    #region Variables
+
     [Header("Universal Betting Info")]
-    public int betAmount;
+    private int betAmount;
     public BetType betType;
 
     [Header("Number Bet Info")]
@@ -18,9 +24,16 @@ public class BettingButton : MonoBehaviour
 
     public Bet bet;
 
-    public BettingTable parentBettingTable;
+    [HideInInspector] public BettingTable parentBettingTable;
+    private Button button;
+
+    #endregion
 
 
+
+    // Functions
+
+    #region Functions
 
     public void PlaceBet()
     {
@@ -53,4 +66,24 @@ public class BettingButton : MonoBehaviour
         BetManager.Instance.PlaceBet(bet);
         parentBettingTable.UpdateUI();
     }
+
+
+
+    private void Awake()
+    {
+        button = GetComponent<Button>();
+
+        parentBettingTable = GetComponentInParent<BettingTable>();
+
+        if (button != null)
+            button.onClick.AddListener(PlaceBet);
+    }
+
+    private void OnDestroy()
+    {
+        if (button != null)
+            button.onClick.RemoveListener(PlaceBet);
+    }
+
+    #endregion
 }

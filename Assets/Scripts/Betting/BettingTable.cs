@@ -54,6 +54,8 @@ public class BettingTable : MonoBehaviour
     {
         foreach (var pocket in RunManager.Instance.currentWheel.pockets)
         {
+            if (pocket.baseNumber == 0) continue; // skip 0, as it is not a valid straight bet
+
             var button = Instantiate(bettingButtonObject, straightButtonContainer);
             button.transform.localScale = Vector3.one;
 
