@@ -27,7 +27,12 @@ public class BettingTable : MonoBehaviour
     #region Functions
 
 
-    #region Betting Slider
+    #region UI Functions
+
+    public void UpdateUI()
+    {
+        betSlider.maxValue = RunManager.Instance.chips;
+    }
 
     private void OnBetAmountChanged(float x)
     {
@@ -40,6 +45,11 @@ public class BettingTable : MonoBehaviour
 
     #region Betting Button Population
 
+    public void GenerateBettingButtons()
+    {
+        PopulateStraightPockets();
+    }
+
     public void PopulateStraightPockets()
     {
         foreach (var pocket in RunManager.Instance.currentWheel.pockets)
@@ -47,10 +57,17 @@ public class BettingTable : MonoBehaviour
             var button = Instantiate(bettingButtonObject, straightButtonContainer);
             button.transform.localScale = Vector3.one;
 
+            // setting text
             TextMeshProUGUI buttonTextObject = button.GetComponentInChildren<TextMeshProUGUI>();
             buttonTextObject.text = pocket.baseNumber.ToString();
             buttonTextObject.enableAutoSizing = true;
-        }    
+
+            // setting bet info
+            BettingButton bettingScript = button.GetComponent<BettingButton>();
+            bettingScript.parentBettingTable = this;
+            bettingScript.betType = BetType.Straight;
+            bettingScript.number = pocket.baseNumber;
+        }
     }
 
     #endregion
@@ -64,7 +81,7 @@ public class BettingTable : MonoBehaviour
         betSlider.maxValue = RunManager.Instance.chips;
         betSlider.onValueChanged.AddListener(OnBetAmountChanged);
 
-        PopulateStraightPockets();
+        GenerateBettingButtons();
     }
 
     #endregion
