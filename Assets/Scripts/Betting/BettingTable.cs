@@ -13,7 +13,9 @@ public class BettingTable : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bettingAmountText;
     [SerializeField] private Slider betSlider;
 
-
+    [Header("Pocket Button Object for Generation")]
+    [SerializeField] private GameObject bettingButtonObject;
+    [SerializeField] private RectTransform straightButtonContainer;
 
     #endregion
 
@@ -35,12 +37,34 @@ public class BettingTable : MonoBehaviour
     #endregion
 
 
+
+    #region Betting Button Population
+
+    public void PopulateStraightPockets()
+    {
+        foreach (var pocket in RunManager.Instance.currentWheel.pockets)
+        {
+            var button = Instantiate(bettingButtonObject, straightButtonContainer);
+            button.transform.localScale = Vector3.one;
+
+            TextMeshProUGUI buttonTextObject = button.GetComponentInChildren<TextMeshProUGUI>();
+            buttonTextObject.text = pocket.baseNumber.ToString();
+            buttonTextObject.enableAutoSizing = true;
+        }    
+    }
+
+    #endregion
+
+
+
     #region Built in functions
 
     private void Start()
     {
         betSlider.maxValue = RunManager.Instance.chips;
         betSlider.onValueChanged.AddListener(OnBetAmountChanged);
+
+        PopulateStraightPockets();
     }
 
     #endregion
