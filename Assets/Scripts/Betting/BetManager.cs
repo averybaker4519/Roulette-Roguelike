@@ -107,6 +107,12 @@ public class BetManager : MonoBehaviour
             return;
         }
 
+        if (IsBetAlreadyActive(bet))
+        {
+            Debug.LogWarning("BetManager: Attempted to place a bet that is already active.");
+            return;
+        }
+
         if (RunManager.Instance.HasEnoughChips(bet.betAmount))
         {
             Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
@@ -150,6 +156,45 @@ public class BetManager : MonoBehaviour
             }
         }
         activeBets.Clear();
+    }
+
+    public bool IsBetAlreadyActive(Bet bet)
+    {
+        foreach (Bet activeBet in activeBets)
+        {
+            switch (activeBet.betType)
+            {
+                case BetType.Straight:
+                    if (bet.betType == BetType.Straight && activeBet.number == bet.number)
+                        return true;
+                    break;
+                case BetType.RedBlack:
+                    if (bet.betType == BetType.RedBlack && activeBet.color == bet.color)
+                        return true;
+                    break;
+                case BetType.EvenOdd:
+                    if (bet.betType == BetType.EvenOdd && activeBet.even == bet.even)
+                        return true;
+                    break;
+                case BetType.LowHigh:
+                    if (bet.betType == BetType.LowHigh && activeBet.high == bet.high)
+                        return true;
+                    break;
+                case BetType.Dozen:
+                    if (bet.betType == BetType.Dozen && activeBet.dozen == bet.dozen)
+                        return true;
+                    break;
+                case BetType.Column:
+                    if (bet.betType == BetType.Column && activeBet.column == bet.column)
+                        return true;
+                    break;
+                default:
+                    Debug.LogWarning("IsBetAlreadyActive: Unknown BetType");
+                    break;
+            }
+
+        }
+        return false;
     }
 
     #endregion
