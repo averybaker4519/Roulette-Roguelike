@@ -101,13 +101,25 @@ public class BetManager : MonoBehaviour
 
     public void PlaceBet(Bet bet)
     {
+        if (RunManager.Instance.currentBetCount >= RunManager.Instance.numOfBetsAllowed)
+        {
+            Debug.LogWarning("BetManager: Maximum number of bets reached for this spin.");
+            return;
+        }
+
         if (bet == null)
         {
             Debug.LogWarning("BetManager: PlaceBet called with null bet.");
             return;
         }
 
-        Bet activeBet = IsBetAlreadyActive(bet);
+        if (IsBetActive(bet))
+        {
+            Debug.LogWarning("BetManager: Attempted to place a bet that is already active.");
+            return;
+        }
+
+        Bet activeBet = AddToExistingValidBet(bet);
         if (activeBet != null)
         {
             activeBet.betAmount += bet.betAmount;
@@ -121,6 +133,7 @@ public class BetManager : MonoBehaviour
             Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
             RunManager.Instance.RemoveChips(bet.betAmount);
             activeBets.Add(bet);
+            RunManager.Instance.currentBetCount++;
         }
         else
         {
@@ -160,8 +173,44 @@ public class BetManager : MonoBehaviour
         }
         activeBets.Clear();
     }
+    
+    public bool IsBetActive(Bet bet)
+    {
+        foreach (Bet activeBet in activeBets)
+        {
+            switch (activeBet.betType)
+            {
+                case BetType.Straight:
+                    return false;
+                case BetType.RedBlack:
+                    if (bet.betType == BetType.RedBlack)
+                        return true;
+                    break;
+                case BetType.EvenOdd:
+                    if (bet.betType == BetType.EvenOdd)
+                        return true;
+                    break;
+                case BetType.LowHigh:
+                    if (bet.betType == BetType.LowHigh)
+                        return true;
+                    break;
+                case BetType.Dozen:
+                    if (bet.betType == BetType.Dozen)
+                        return true;
+                    break;
+                case BetType.Column:
+                    if (bet.betType == BetType.Column)
+                        return true;
+                    break;
+                default:
+                    break;
+            }
 
-    public Bet IsBetAlreadyActive(Bet bet)
+        }
+        return false;
+    }
+
+    public Bet AddToExistingValidBet(Bet bet)
     {
         foreach (Bet activeBet in activeBets)
         {
@@ -233,6 +282,8 @@ public class BetManager : MonoBehaviour
         {
             ResolveBet(pocket, bet);
         }
+
+        RunManager.Instance.ResetBetCount();
     }
 
     public void ResolveBet(RoulettePocket pocket, Bet bet)

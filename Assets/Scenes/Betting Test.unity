@@ -1486,6 +1486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RunManager
   currentWheel: {fileID: 1548012461}
   chips: 10000
+  numOfBetsAllowed: 1
+  currentBetCount: 0
 --- !u!114 &1548012461 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4894515007504811845, guid: d58b6f6ee8dcdb94fb0bd4575f9d7a0f, type: 3}

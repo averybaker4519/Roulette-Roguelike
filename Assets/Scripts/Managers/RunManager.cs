@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class RunManager : MonoBehaviour
     [Header("Run Info")]
     public RouletteWheel currentWheel;
     public int chips;
+    public int numOfBetsAllowed = 3;
+    [HideInInspector] public int currentBetCount = 0;
     public List<IGameModifiers> activeModifiers;
 
     #endregion
@@ -108,6 +111,17 @@ public class RunManager : MonoBehaviour
     public bool HasEnoughChips(int amount)
     {
         return chips >= amount;
+    }
+
+    #endregion
+
+
+
+    #region Bet Management
+
+    public void ResetBetCount()
+    {
+        currentBetCount = 0;
     }
 
     #endregion
