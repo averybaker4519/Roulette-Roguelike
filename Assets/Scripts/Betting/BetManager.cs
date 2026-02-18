@@ -107,9 +107,12 @@ public class BetManager : MonoBehaviour
             return;
         }
 
-        if (IsBetAlreadyActive(bet))
+        Bet activeBet = IsBetAlreadyActive(bet);
+        if (activeBet != null)
         {
-            Debug.LogWarning("BetManager: Attempted to place a bet that is already active.");
+            activeBet.betAmount += bet.betAmount;
+            RunManager.Instance.RemoveChips(bet.betAmount);
+            Debug.LogWarning("BetManager: Added " + bet.betAmount + " chips to existing bet. New bet amount: " + activeBet.betAmount);
             return;
         }
 
@@ -158,7 +161,7 @@ public class BetManager : MonoBehaviour
         activeBets.Clear();
     }
 
-    public bool IsBetAlreadyActive(Bet bet)
+    public Bet IsBetAlreadyActive(Bet bet)
     {
         foreach (Bet activeBet in activeBets)
         {
@@ -166,27 +169,27 @@ public class BetManager : MonoBehaviour
             {
                 case BetType.Straight:
                     if (bet.betType == BetType.Straight && activeBet.number == bet.number)
-                        return true;
+                        return activeBet;
                     break;
                 case BetType.RedBlack:
                     if (bet.betType == BetType.RedBlack && activeBet.color == bet.color)
-                        return true;
+                        return activeBet;
                     break;
                 case BetType.EvenOdd:
                     if (bet.betType == BetType.EvenOdd && activeBet.even == bet.even)
-                        return true;
+                        return activeBet;
                     break;
                 case BetType.LowHigh:
                     if (bet.betType == BetType.LowHigh && activeBet.high == bet.high)
-                        return true;
+                        return activeBet;
                     break;
                 case BetType.Dozen:
                     if (bet.betType == BetType.Dozen && activeBet.dozen == bet.dozen)
-                        return true;
+                        return activeBet;
                     break;
                 case BetType.Column:
                     if (bet.betType == BetType.Column && activeBet.column == bet.column)
-                        return true;
+                        return activeBet;
                     break;
                 default:
                     Debug.LogWarning("IsBetAlreadyActive: Unknown BetType");
@@ -194,7 +197,7 @@ public class BetManager : MonoBehaviour
             }
 
         }
-        return false;
+        return null;
     }
 
     #endregion
