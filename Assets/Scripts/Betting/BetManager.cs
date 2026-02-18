@@ -101,12 +101,17 @@ public class BetManager : MonoBehaviour
 
     public void PlaceBet(Bet bet)
     {
+        if (RunManager.Instance.currentBetCount >= RunManager.Instance.numOfBetsAllowed)
+        {
+            Debug.LogWarning("BetManager: Maximum number of bets reached for this spin.");
+            return;
+        }
+
         if (bet == null)
         {
             Debug.LogWarning("BetManager: PlaceBet called with null bet.");
             return;
         }
-
 
         if (IsBetActive(bet))
         {
@@ -128,6 +133,7 @@ public class BetManager : MonoBehaviour
             Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
             RunManager.Instance.RemoveChips(bet.betAmount);
             activeBets.Add(bet);
+            RunManager.Instance.currentBetCount++;
         }
         else
         {
@@ -276,6 +282,8 @@ public class BetManager : MonoBehaviour
         {
             ResolveBet(pocket, bet);
         }
+
+        RunManager.Instance.ResetBetCount();
     }
 
     public void ResolveBet(RoulettePocket pocket, Bet bet)

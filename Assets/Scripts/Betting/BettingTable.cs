@@ -13,6 +13,9 @@ public class BettingTable : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bettingAmountText;
     [SerializeField] private Slider betSlider;
 
+    [Header("Number of Bets Remaining")]
+    [SerializeField] private TextMeshProUGUI betsRemainingText;
+
     [Header("Button Prefab")]
     [SerializeField] private GameObject bettingButtonObject;
 
@@ -37,6 +40,7 @@ public class BettingTable : MonoBehaviour
     public void UpdateUI()
     {
         betSlider.maxValue = RunManager.Instance.chips;
+        betsRemainingText.text = $"Bets Remaining: {RunManager.Instance.numOfBetsAllowed - RunManager.Instance.currentBetCount}";
     }
 
     private void OnBetAmountChanged(float x)
@@ -128,6 +132,8 @@ public class BettingTable : MonoBehaviour
         wheel.AfterSpinResolved += AfterSpinResolved;
 
         GenerateBettingButtons();
+
+        UpdateUI();
     }
 
 
