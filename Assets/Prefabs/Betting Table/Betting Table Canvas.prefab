@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 2205516932602381846}
   - component: {fileID: 6489262470532183959}
   - component: {fileID: 1769370407776717683}
+  - component: {fileID: 2544571640561192938}
   m_Layer: 5
   m_Name: Column 3
   m_TagString: Untagged
@@ -258,6 +259,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2544571640561192938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111959953482377021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 5
+  number: 0
+  color: 0
+  dozen: 0
+  column: 3
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &134081036249012161
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +428,7 @@ GameObject:
   - component: {fileID: 1140794511710483779}
   - component: {fileID: 6863331555847273995}
   - component: {fileID: 7649800136678961498}
+  - component: {fileID: 463501686387624686}
   m_Layer: 5
   m_Name: 1 to 18
   m_TagString: Untagged
@@ -516,6 +538,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &463501686387624686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152706880136403627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 3
+  number: 0
+  color: 0
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &176999164631536058
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +570,7 @@ GameObject:
   - component: {fileID: 8687996583866565365}
   - component: {fileID: 7778975105541697359}
   - component: {fileID: 4412199186251596208}
+  - component: {fileID: 6808106825443456145}
   m_Layer: 5
   m_Name: Odd
   m_TagString: Untagged
@@ -637,6 +680,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6808106825443456145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176999164631536058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 2
+  number: 0
+  color: 0
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &263584705710364212
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +712,7 @@ GameObject:
   - component: {fileID: 8573133485149224358}
   - component: {fileID: 1480628596300618147}
   - component: {fileID: 3428156559556650019}
+  - component: {fileID: 6870347867575436694}
   m_Layer: 5
   m_Name: Even
   m_TagString: Untagged
@@ -758,6 +822,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6870347867575436694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263584705710364212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 2
+  number: 0
+  color: 0
+  dozen: 0
+  column: 0
+  high: 0
+  even: 1
+  parentBettingTable: {fileID: 0}
 --- !u!1 &290178950350319247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2735,7 @@ GameObject:
   - component: {fileID: 4839649736366152462}
   - component: {fileID: 4086012321202317599}
   - component: {fileID: 3826285397090024781}
+  - component: {fileID: 2580318841516185192}
   m_Layer: 5
   m_Name: Column 2
   m_TagString: Untagged
@@ -2760,6 +2845,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2580318841516185192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686450723367220669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 5
+  number: 0
+  color: 0
+  dozen: 0
+  column: 2
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &1687986699885489315
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3548,7 @@ GameObject:
   - component: {fileID: 1353805597108405854}
   - component: {fileID: 598537032877507085}
   - component: {fileID: 4790333795376817875}
+  - component: {fileID: 407795803611144703}
   m_Layer: 5
   m_Name: Column 1
   m_TagString: Untagged
@@ -3552,6 +3658,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &407795803611144703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016211023192337256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 5
+  number: 0
+  color: 0
+  dozen: 0
+  column: 1
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &2047258748998337437
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,6 +4817,7 @@ GameObject:
   - component: {fileID: 8391301542790957481}
   - component: {fileID: 9128951664825223486}
   - component: {fileID: 7684448261463776070}
+  - component: {fileID: 587945004957790661}
   m_Layer: 5
   m_Name: 00
   m_TagString: Untagged
@@ -4705,13 +4832,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2851617249956945771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1234322780973050830}
-  m_Father: {fileID: 1393257337780905559}
+  m_Father: {fileID: 5079229853170165974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4800,6 +4927,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &587945004957790661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851617249956945771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 0
+  number: 0
+  color: 2
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &2997116599489859536
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,6 +5888,7 @@ GameObject:
   - component: {fileID: 630129786625998073}
   - component: {fileID: 7235310384719207590}
   - component: {fileID: 1584371216939547784}
+  - component: {fileID: 6577294786276480427}
   m_Layer: 5
   m_Name: 1st 12
   m_TagString: Untagged
@@ -5850,6 +5998,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6577294786276480427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3546013910820760207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 4
+  number: 0
+  color: 0
+  dozen: 1
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &3564671974742376044
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,6 +6949,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BettingTable
   bettingAmountText: {fileID: 7583387213173121493}
   betSlider: {fileID: 6051408765309010110}
+  bettingButtonObject: {fileID: 1917584045188990893, guid: 7e6a7ccee6695f94dabfcc45afdd89a0, type: 3}
+  straightButtonContainer: {fileID: 4391958261622376295}
+  zeroButtonContainer: {fileID: 6947023179872108890}
+--- !u!1 &3956759714834517661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6947023179872108890}
+  - component: {fileID: 5514794713977120994}
+  m_Layer: 5
+  m_Name: 0 and 00 (GENERATED IN SCRIPT)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6947023179872108890
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956759714834517661}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556461637279386165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1092.69, y: 193.10083}
+  m_SizeDelta: {x: 751.2783, y: 174.8791}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5514794713977120994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3956759714834517661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 224, y: 158}
+  m_Spacing: {x: 100, y: 0}
+  m_Constraint: 1
+  m_ConstraintCount: 2
 --- !u!1 &4053192494024502845
 GameObject:
   m_ObjectHideFlags: 0
@@ -7760,6 +7991,7 @@ GameObject:
   - component: {fileID: 8096292076115817067}
   - component: {fileID: 420023382315750229}
   - component: {fileID: 6505948108187944541}
+  - component: {fileID: 3927809508677971106}
   m_Layer: 5
   m_Name: 0
   m_TagString: Untagged
@@ -7774,13 +8006,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4556733130412759597}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1264386698601149762}
-  m_Father: {fileID: 1393257337780905559}
+  m_Father: {fileID: 5079229853170165974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7869,6 +8101,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3927809508677971106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556733130412759597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 0
+  number: 0
+  color: 2
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &4659989981460723046
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,11 +8545,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1393257337780905559}
+  - {fileID: 5079229853170165974}
   - {fileID: 2054096729039504107}
   - {fileID: 2886072281278117341}
   - {fileID: 7910382372739473}
   - {fileID: 850948582187215329}
   - {fileID: 5950977549489830371}
+  - {fileID: 4391958261622376295}
+  - {fileID: 6947023179872108890}
   m_Father: {fileID: 3050255302194167389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8320,7 +8575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1393257337780905559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8333,8 +8588,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 840080071038017251}
-  - {fileID: 8807106361025854158}
   - {fileID: 8874594580848216989}
   - {fileID: 1294671312365009710}
   - {fileID: 6289511742277594539}
@@ -8527,6 +8780,7 @@ GameObject:
   - component: {fileID: 3666983882149821460}
   - component: {fileID: 3646412870662249505}
   - component: {fileID: 1982617623607315585}
+  - component: {fileID: 6408813336551016266}
   m_Layer: 5
   m_Name: 19 to 36
   m_TagString: Untagged
@@ -8636,6 +8890,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6408813336551016266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5058360003844845239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 3
+  number: 0
+  color: 0
+  dozen: 0
+  column: 0
+  high: 1
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &5168747638694571863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8648,6 +8922,7 @@ GameObject:
   - component: {fileID: 1077410429089550413}
   - component: {fileID: 8274775631976197998}
   - component: {fileID: 7514229732783497244}
+  - component: {fileID: 48367828845354550}
   m_Layer: 5
   m_Name: Red
   m_TagString: Untagged
@@ -8757,6 +9032,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &48367828845354550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168747638694571863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 1
+  number: 0
+  color: 0
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &5240345365814563293
 GameObject:
   m_ObjectHideFlags: 0
@@ -8931,6 +9226,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &5351780119344354794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4391958261622376295}
+  - component: {fileID: 5620859939469248738}
+  m_Layer: 5
+  m_Name: Single Numbers (GENERATED IN SCRIPT)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4391958261622376295
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351780119344354794}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556461637279386165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 29.476318, y: 188.21826}
+  m_SizeDelta: {x: 762.4016, y: 2026.0106}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5620859939469248738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5351780119344354794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 224, y: 158}
+  m_Spacing: {x: 35, y: 10}
+  m_Constraint: 1
+  m_ConstraintCount: 3
 --- !u!1 &5681188127019417666
 GameObject:
   m_ObjectHideFlags: 0
@@ -9338,6 +9693,7 @@ GameObject:
   - component: {fileID: 3468919513786807312}
   - component: {fileID: 2347204883937343890}
   - component: {fileID: 8795059988626809171}
+  - component: {fileID: 1404766322400509028}
   m_Layer: 5
   m_Name: 2nd 12
   m_TagString: Untagged
@@ -9447,6 +9803,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1404766322400509028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826209764977618457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 4
+  number: 0
+  color: 0
+  dozen: 2
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &5850665589470784377
 GameObject:
   m_ObjectHideFlags: 0
@@ -9580,6 +9956,7 @@ GameObject:
   - component: {fileID: 8026495256867003877}
   - component: {fileID: 920515176408485646}
   - component: {fileID: 8433638968337966020}
+  - component: {fileID: 720958884130469464}
   m_Layer: 5
   m_Name: 3rd 12
   m_TagString: Untagged
@@ -9689,6 +10066,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &720958884130469464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887150072181885153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 4
+  number: 0
+  color: 0
+  dozen: 3
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &5897770867179548873
 GameObject:
   m_ObjectHideFlags: 0
@@ -9699,7 +10096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 850948582187215329}
   m_Layer: 5
-  m_Name: EvenOrOdd
+  m_Name: Half
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9994,7 +10391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5950977549489830371}
   m_Layer: 5
-  m_Name: Halfs
+  m_Name: Even or Odd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10154,6 +10551,7 @@ GameObject:
   - component: {fileID: 7555849297612250951}
   - component: {fileID: 8278707128387218215}
   - component: {fileID: 7298542088544841877}
+  - component: {fileID: 6370396940174687749}
   m_Layer: 5
   m_Name: Black
   m_TagString: Untagged
@@ -10263,6 +10661,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6370396940174687749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104607810985350430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 661f4c8e76990e944bcbec09c11bc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BettingButton
+  betType: 1
+  number: 0
+  color: 1
+  dozen: 0
+  column: 0
+  high: 0
+  even: 0
+  parentBettingTable: {fileID: 0}
 --- !u!1 &6128125890561432424
 GameObject:
   m_ObjectHideFlags: 0
@@ -10886,6 +11304,43 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &6719087927787139403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5079229853170165974}
+  m_Layer: 5
+  m_Name: 0 and 00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5079229853170165974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719087927787139403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 840080071038017251}
+  - {fileID: 8807106361025854158}
+  m_Father: {fileID: 1556461637279386165}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6789174790419915274
 GameObject:
   m_ObjectHideFlags: 0

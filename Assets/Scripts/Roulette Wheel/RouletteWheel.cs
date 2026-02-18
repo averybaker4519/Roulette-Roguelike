@@ -26,6 +26,7 @@ public class RouletteWheel : MonoBehaviour
     public event Action OnSpinStart;
     public event Action OnSpinning;
     public event Action<RoulettePocket> OnSpinResolved;
+    public event Action AfterSpinResolved;
 
     #endregion
 
@@ -91,6 +92,8 @@ public class RouletteWheel : MonoBehaviour
         RoulettePocket result = GetRandomPocketFromContext(context);
         ResolveSpin(result);
         print("Number of pockets: " + context.pockets.Count);
+
+        AfterSpin();
     }
 
     // test function
@@ -113,6 +116,11 @@ public class RouletteWheel : MonoBehaviour
     private void ResolveSpin(RoulettePocket pocket)
     {
         OnSpinResolved?.Invoke(pocket);
+    }
+
+    private void AfterSpin()
+    {
+        AfterSpinResolved?.Invoke();
     }
 
     #endregion

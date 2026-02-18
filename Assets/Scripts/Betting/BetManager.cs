@@ -107,6 +107,15 @@ public class BetManager : MonoBehaviour
             return;
         }
 
+        Bet activeBet = IsBetAlreadyActive(bet);
+        if (activeBet != null)
+        {
+            activeBet.betAmount += bet.betAmount;
+            RunManager.Instance.RemoveChips(bet.betAmount);
+            Debug.LogWarning("BetManager: Added " + bet.betAmount + " chips to existing bet. New bet amount: " + activeBet.betAmount);
+            return;
+        }
+
         if (RunManager.Instance.HasEnoughChips(bet.betAmount))
         {
             Debug.LogWarning("BetManager: Placing bet of " + bet.betAmount + " chips.");
@@ -150,6 +159,45 @@ public class BetManager : MonoBehaviour
             }
         }
         activeBets.Clear();
+    }
+
+    public Bet IsBetAlreadyActive(Bet bet)
+    {
+        foreach (Bet activeBet in activeBets)
+        {
+            switch (activeBet.betType)
+            {
+                case BetType.Straight:
+                    if (bet.betType == BetType.Straight && activeBet.number == bet.number)
+                        return activeBet;
+                    break;
+                case BetType.RedBlack:
+                    if (bet.betType == BetType.RedBlack && activeBet.color == bet.color)
+                        return activeBet;
+                    break;
+                case BetType.EvenOdd:
+                    if (bet.betType == BetType.EvenOdd && activeBet.even == bet.even)
+                        return activeBet;
+                    break;
+                case BetType.LowHigh:
+                    if (bet.betType == BetType.LowHigh && activeBet.high == bet.high)
+                        return activeBet;
+                    break;
+                case BetType.Dozen:
+                    if (bet.betType == BetType.Dozen && activeBet.dozen == bet.dozen)
+                        return activeBet;
+                    break;
+                case BetType.Column:
+                    if (bet.betType == BetType.Column && activeBet.column == bet.column)
+                        return activeBet;
+                    break;
+                default:
+                    Debug.LogWarning("IsBetAlreadyActive: Unknown BetType");
+                    break;
+            }
+
+        }
+        return null;
     }
 
     #endregion
@@ -213,7 +261,7 @@ public class BetManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Bet lost");
+            Debug.Log("Bet lost. Chips left: " + RunManager.Instance.chips);
         }
     }
 
