@@ -1,16 +1,15 @@
 using UnityEngine;
 
 [System.Serializable]
-public abstract class Modifier : MonoBehaviour
+public abstract class Modifier : ScriptableObject
 {
     // Variables
 
     #region Variables
 
     [Header("Universal Upgrade Data")]
-    //[HideInInspector] 
-    public int amount = 1;
-    //[HideInInspector] public string description = "Description of the modifier's effect.";
+    public string modifierName;
+    //[HideInInspector] public string modifierDescription;
 
     #endregion
 

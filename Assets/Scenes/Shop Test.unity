@@ -728,11 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   drinks:
-  - itemName: 
-    price: 0
-    itemImage: {fileID: 0}
-    modifier: {fileID: 0}
-    rarity: 0
+  - {fileID: 11400000, guid: c66593638d37b6e4d9944c991f0f1e7b, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

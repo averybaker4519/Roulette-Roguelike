@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Vesper
   price: 200
   itemImage: {fileID: 0}
-  modifier: {fileID: 0}
+  description: Adds two 0 pockets to the wheel.
+  modifier: {fileID: 11400000, guid: 53951c0cac5c97f4dacf5e6c821e45f5, type: 2}
   rarity: 10

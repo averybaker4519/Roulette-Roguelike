@@ -1,8 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
-public class ShopItem : ScriptableObject
+public abstract class ShopItem : ScriptableObject
 {
     // Variables
 
@@ -12,8 +12,8 @@ public class ShopItem : ScriptableObject
 
     public string itemName;
     public int price;
-    public Image itemImage;
-    //public string description;
+    public Sprite itemImage;
+    public string description;
     public Modifier modifier;
 
     #endregion
