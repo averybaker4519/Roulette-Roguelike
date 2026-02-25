@@ -1,6 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Shop/Drinks")]
+[System.Serializable]
+[CreateAssetMenu(menuName = "Shop/Drink")]
 public class Drink : ShopItem
 {
     // Variables

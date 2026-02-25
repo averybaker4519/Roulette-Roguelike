@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d084d2312dcab4a96fae45174485a5, type: 3}
   m_Name: Vesper
   m_EditorClassIdentifier: Assembly-CSharp::Drink
-  itemName: Beer
-  price: 7
+  itemName: Vesper
+  price: 200
   itemImage: {fileID: 0}
-  rarity: 3
+  modifier: {fileID: 0}
+  rarity: 10

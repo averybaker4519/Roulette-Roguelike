@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public abstract class Modifier : MonoBehaviour
 {
     // Variables
@@ -7,7 +8,9 @@ public abstract class Modifier : MonoBehaviour
     #region Variables
 
     [Header("Universal Upgrade Data")]
+    //[HideInInspector] 
     public int amount = 1;
+    //[HideInInspector] public string description = "Description of the modifier's effect.";
 
     #endregion
 
@@ -15,5 +18,5 @@ public abstract class Modifier : MonoBehaviour
 
     // Functions
 
-    public abstract IGameModifiers CreateModifier(RoulettePocket redPocket);
+    public abstract IGameModifiers CreateModifier();
 }
